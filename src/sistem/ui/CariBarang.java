@@ -190,11 +190,14 @@ public class CariBarang extends javax.swing.JFrame {
         
         String id_barang = tm.getValueAt(i, 0).toString();
         String nama_barang = tm.getValueAt(i, 1).toString();
+        String jumlah = tm.getValueAt(i, 3).toString();
         String harga = tm.getValueAt(i, 4).toString();
         
         trs.idBarang.setText(id_barang);
         trs.namaBarang.setText(nama_barang);
+        trs.stokTxt.setText(jumlah);
         trs.hargaBrg.setText(harga);
+        
         trs.setVisible(true);
         dispose();
     }//GEN-LAST:event_barangTabelMouseClicked
