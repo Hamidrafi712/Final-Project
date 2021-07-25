@@ -28,10 +28,11 @@ public class BarangManager {
         try {
             Connection con = ConnectionHelper.getConnection();//menginisiasikan conn dan memngggil method getConnection dari class ConenectionHelper
             Statement stmn = con.createStatement();//pemanggilan statement untuk melakukan pemanggilan statement sql agar bisa melakukann query
-            ResultSet rs = stmn.executeQuery("select * from barang WHERE nama_barang LIKE '%"+q+"%' ");//Melalukan ExecuteQuery agar bisa mengambil data dari database lalu disimpan ke variabel rs atau ResultSet dan melakukan pencarian
+            ResultSet rs = stmn.executeQuery("select * from barang WHERE nama_barang LIKE "
+                    + "'%"+q+"%' ");//Melalukan ExecuteQuery agar bisa mengambil data dari database lalu disimpan ke variabel rs atau ResultSet dan melakukan pencarian
             
             while (rs.next()) { //Mengecek dan melakukan perulangan bila ada data
-               //mengeset properti dari model
+               //mengeset properti didalam class model
                //yang datanya diambil dari database
                BarangModel barangModel = new BarangModel();
                

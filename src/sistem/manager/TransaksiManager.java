@@ -31,7 +31,7 @@ public class TransaksiManager {
             ResultSet rs = stmn.executeQuery("select * from transaksi");//Melalukan ExecuteQuery agar bisa mengambil data dari database lalu disimpan ke variabel rs atau ResultSet
             
             while (rs.next()) { //Mengecek dan melakukan perulangan bila ada data
-               //mengeset properti didalam class buku
+               //mengeset properti didalam class model
                //yang datanya diambil dari database
                TransaksiModel transaksiModel = new TransaksiModel();
                
