@@ -83,12 +83,37 @@ public class CheckConnection {
             
             while (rs.next()){ //Melakukan iterable atau looping bila memiliki datanya di dalam database
                 System.out.println
-                         ("ID Barang         : " + rs.getString("id_barang")
+                         ("ID Transaksi         : " + rs.getString("id_transaksi")
+                        +"\nID Pelanggan     : "+rs.getString("id_pelanggan")
+                        +"\nID Barang        : "+rs.getString("id_barang")         
                         +"\nNama Barang      : "+rs.getString("nama_barang")
-                        +"\nTanggal Ex       : "+rs.getString("exp_date")
+                        +"\nTanggal Tx       : "+rs.getString("tanggal_tx")
                         +"\nJumlah           : "+rs.getString("jumlah")
                         +"\nHarga            : "+rs.getString("harga")
-                        +"\nKategori         : "+rs.getString("kategori"));
+                        +"\nTotal         : "+rs.getString("total"));
+            }
+        }
+        catch (SQLException ex){//menggunakan SQLException untuk menangkap error
+            Logger.getLogger(CheckConnection.class.getName()).log(Level.SEVERE, null, ex); //untuk melakukan logging untuk pencatatan error
+        }
+    }
+    
+    public static void tampilNota(){
+        try {//membuat try-catch untuk menangani error
+            Connection conn = ConnectionHelper.getConnection(); //digunakan untuk mendapatkan komeksi dengan database
+            Statement stmn = conn.createStatement(); //digunakan untuk pengiriman statement SQL tanpa parameter, agar bisa melalukan query
+            ResultSet rs = stmn.executeQuery("Select * nota"); //Melalukan ExecuteQuery agar bisa mengambil data dari database //lalu disimpan ke variabel rs atau ResultSet
+            
+            while (rs.next()){ //Melakukan iterable atau looping bila memiliki datanya di dalam database
+                System.out.println
+                         ("ID Transaksi         : " + rs.getString("id_transaksi")
+                        +"\nID Pelanggan     : "+rs.getString("id_pelanggan")
+                        +"\nID Barang        : "+rs.getString("id_barang")         
+                        +"\nNama Barang      : "+rs.getString("nama_barang")
+                        +"\nTanggal Tx       : "+rs.getString("tgl_tx")
+                        +"\nJumlah           : "+rs.getString("jumlah")
+                        +"\nHarga            : "+rs.getString("harga")
+                        +"\nTotal         : "+rs.getString("total"));
             }
         }
         catch (SQLException ex){//menggunakan SQLException untuk menangkap error
